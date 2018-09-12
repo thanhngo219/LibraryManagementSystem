@@ -18,7 +18,7 @@ public class Book implements Serializable {
 
     private List<Author> authors = new ArrayList<>();
     
-    public Book() {
+    Book() {
     	
     }
 
