@@ -1,18 +1,14 @@
 package com.library.addbookcopy;
 
 import com.library.business.Book;
-
+import com.library.business.BookCopy;
+import com.library.business.Library;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class BookCopyController {
-
-    @FXML
-    private Label lblIISBN;
 
     @FXML
     private TextField txtISBN;
@@ -27,24 +23,31 @@ public class BookCopyController {
 
     public void lookUp(ActionEvent event) {
 
-        String ISBN = txtISBN.getText();
-        // implement check isbn from datastore
-
-
-        // return true/false
-        // True; Lookup button is disable
-
-
+        String isbn = txtISBN.getText();
+        Library.read();
+        book = Library.getBook(isbn);
+        if (book == null) {
+            System.out.println("Cannot find book " + isbn);
+            return;
+        }
         btnAddBookCopy.setDisable(false);
-
-
-        // False; Show error message and User can look up again
 
     }
 
     public void addBookCopy(ActionEvent event) {
+        if (book == null) {
+            System.out.println("Cannot find book " + txtISBN.getText());
+            return;
+        }
 
-        // implement
+        BookCopy newBookCopy = Library.newBookCopy(book);
+        Library.write();
+        if (newBookCopy == null) {
+            System.out.println("Cannot add new book copy.");
+        }
+        else {
+            System.out.println("New book copy is added.");
+        }
     }
 
 

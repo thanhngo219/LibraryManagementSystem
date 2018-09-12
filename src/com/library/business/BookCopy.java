@@ -4,18 +4,18 @@ import java.io.Serializable;
 
 public class BookCopy implements Serializable {
 
-	private Integer bookId;
+	private Integer bookCopyId;
 
 	private boolean available = true;
 
 	private Book book;
 
-	public Integer getBookId() {
-		return bookId;
+	public Integer getBookCopyId() {
+		return bookCopyId;
 	}
 
-	public void setBookId(Integer bookId) {
-		this.bookId = bookId;
+	public void setBookCopyId(Integer bookCopyId) {
+		this.bookCopyId = bookCopyId;
 	}
 
 	public boolean isAvailable() {

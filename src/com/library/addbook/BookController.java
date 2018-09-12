@@ -1,27 +1,19 @@
 package com.library.addbook;
 
-import com.library.business.Author;
-import com.library.business.BookType;
-import com.library.business.BorrowDay;
-
+import com.library.business.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class BookController {
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-
-    @FXML
-    private Label lblTitle;
-
-    @FXML
-    private Label lblISBN;
-
-    @FXML
-    private Label lblAuthors;
+public class BookController implements Initializable {
 
     @FXML
     private TextField txtTitle;
@@ -42,18 +34,32 @@ public class BookController {
     @FXML
     private Button btnAddBook;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        cbbBookType.getItems().addAll(BookType.values());
+        cbbBorrowDay.getItems().addAll(BorrowDay.values());
+        Library.read();
+        cbbAuthors.getItems().addAll(Library.getAuthors());
+    }
 
     public void addBook(ActionEvent event) {
         String title = txtTitle.getText();
-        String ISBNNumber = txtISBNNumber.getText();
+        String isbnNumber = txtISBNNumber.getText();
 
         Author author = cbbAuthors.getValue();
         BookType bookType = cbbBookType.getValue();
         BorrowDay borrowDay = cbbBorrowDay.getValue();
 
-        System.out.println("AddBook" + title + ISBNNumber + author + bookType + borrowDay);
+        Book newBook = Library.newBook(isbnNumber);
+        newBook.setTitle(title);
+        newBook.getAuthors().add(author);
+        newBook.setBookType(bookType);
+        newBook.setBorrowDay(borrowDay);
 
+        BookCopy newBookCopy = Library.newBookCopy(newBook);
+        newBook.getBookCopies().add(newBookCopy);
+
+        Library.write();
+        System.out.println("New book is added.");
     }
-
-
 }

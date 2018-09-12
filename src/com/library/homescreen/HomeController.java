@@ -34,29 +34,21 @@ public class HomeController {
         this.currentUser = currentUser;
     }
 
-    public void btnAddMemberOnClick(ActionEvent event) {
-        System.out.println("btnAddMemberOnClick!");
+    public void btnAddMemberOnClick(ActionEvent event) throws Exception {
+        navigateToNewScreen("../addmember/addMember.fxml", event);
     }
 
-    public void btnEditMemberOnClick(ActionEvent event) {
-        System.out.println("btnEditMemberOnClick!");
+    public void btnEditMemberOnClick(ActionEvent event) throws Exception {
+        navigateToNewScreen("../editMember/editMember.fxml", event);
     }
 
     public void btnAddBookOnClick(ActionEvent event) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../addbook/book.fxml"));
-
-        Parent root = fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setTitle(LibraryConstant.APPLICATION_TITLE);
-        stage.show();
-        ((Node) (event.getSource())).getScene().getWindow().hide();
+        navigateToNewScreen("../addbook/book.fxml", event);
     }
 
-    public void btnAddBookCopyOnClick(ActionEvent event) {
-        System.out.println("addBooks!");
+    public void btnAddBookCopyOnClick(ActionEvent event) throws Exception {
+        navigateToNewScreen("../addbookcopy/bookcopy.fxml", event);
     }
-
 
     public void btnCheckoutBookOnClick(ActionEvent event) {
         System.out.println("btnCheckoutBookOnClick!");
@@ -80,5 +72,16 @@ public class HomeController {
 
     public void disableBtnAddBookCopy(boolean value) {
         btnAddBookCopy.setDisable(value);
+    }
+
+    private void navigateToNewScreen(String fxmlPath, ActionEvent event) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
+
+        Parent root = fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setTitle(LibraryConstant.APPLICATION_TITLE);
+        stage.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 }
