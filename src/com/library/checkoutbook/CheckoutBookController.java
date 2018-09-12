@@ -1,7 +1,5 @@
 package com.library.checkoutbook;
 
-import java.time.LocalDate;
-
 import com.library.business.Book;
 import com.library.business.BookCopy;
 import com.library.business.CheckoutEntry;
@@ -111,8 +109,7 @@ public class CheckoutBookController {
 			return;
 		}
 
-		CheckoutEntry checkoutEntry = new CheckoutEntry(bookCopy);
-		member.getCheckoutRecord().addCheckoutEntry(checkoutEntry);
+		member.checkOut(bookCopy);
 
 //		bookCopy.setAvailable(false);
 

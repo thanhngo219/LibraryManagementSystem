@@ -25,4 +25,7 @@ public class Member extends Person {
 		this.checkoutRecord = checkoutRecord;
 	}
 
+	public void checkOut(BookCopy bookCopy) {
+		checkoutRecord.addCheckoutEntry(new CheckoutEntry(bookCopy));
+	}
 }
