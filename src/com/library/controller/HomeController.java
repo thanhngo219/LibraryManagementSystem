@@ -1,4 +1,4 @@
-package com.library.homescreencontrol;
+package com.library.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
