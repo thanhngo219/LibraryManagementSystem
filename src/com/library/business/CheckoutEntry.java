@@ -50,7 +50,7 @@ public class CheckoutEntry implements Serializable {
 	}
 
 	public String getBookCopyId() {
-		return "" + bookCopy.getBookId();
+		return "" + bookCopy.getBookCopyId();
 	}
 
 	public String getCheckoutDateString() {
