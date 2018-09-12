@@ -1,4 +1,4 @@
-package com.library.controller;
+package com.library.homescreen;
 
 import com.library.business.User;
 import javafx.event.ActionEvent;
@@ -24,7 +24,7 @@ public class HomeController {
 
 	private User currentUser;
 
-	void initData(User currentUser) {
+	public void initData(User currentUser) {
 		this.currentUser = currentUser;
 	}
 	

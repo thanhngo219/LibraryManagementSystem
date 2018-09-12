@@ -5,7 +5,7 @@ public class Member extends Person {
 
 	private CheckoutRecord checkoutRecord = new CheckoutRecord();
 
-	Member() {
+	public Member() {
 
 	}
 

@@ -1,4 +1,4 @@
-package com.library.gui;
+package com.library.checkoutbook;
 
 import com.library.business.CheckoutEntry;
 import com.library.business.Member;

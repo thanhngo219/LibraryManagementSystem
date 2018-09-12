@@ -1,7 +1,8 @@
-package com.library.controller;
+package com.library.login;
 
 import com.library.business.User;
 import com.library.business.UserDao;
+import com.library.homescreen.HomeController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,7 +33,7 @@ public class LoginController {
 		UserDao userDao = new UserDao();
 		User currentUser = userDao.login(id, password);
 		if(currentUser != null) {
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../gui/homescreen.fxml"));
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../homescreen/homescreen.fxml"));
 			Parent root = fxmlLoader.load();
 			Stage stage = new Stage();
 			stage.setScene(new Scene(root));

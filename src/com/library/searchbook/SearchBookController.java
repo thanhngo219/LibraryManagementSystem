@@ -1,4 +1,4 @@
-package com.library.controller;
+package com.library.searchbook;
 
 import javax.swing.text.TabableView;
 

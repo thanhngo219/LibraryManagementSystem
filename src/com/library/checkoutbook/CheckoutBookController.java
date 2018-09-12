@@ -1,4 +1,4 @@
-package com.library.gui;
+package com.library.checkoutbook;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

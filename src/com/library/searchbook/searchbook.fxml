@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="351.0" prefWidth="696.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.library.controller.SearchBookController">
+<AnchorPane prefHeight="351.0" prefWidth="696.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.library.searchbook.SearchBookController">
    <children>
       <FlowPane layoutX="-251.0" layoutY="-191.0" prefHeight="200.0" prefWidth="200.0" />
       <Label alignment="CENTER" layoutX="61.0" layoutY="27.0" prefHeight="17.0" prefWidth="427.0" text="Search Book" />

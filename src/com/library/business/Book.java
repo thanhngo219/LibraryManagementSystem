@@ -20,7 +20,7 @@ public class Book implements Serializable {
 
     private List<Member> members = new ArrayList<>();
     
-    Book() {
+    public Book() {
     	
     }
 
