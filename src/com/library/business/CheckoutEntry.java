@@ -5,9 +5,9 @@ import java.time.LocalDate;
 
 public class CheckoutEntry implements Serializable {
 
-	private LocalDate checkoutDate;
+	private LocalDate checkoutDate = LocalDate.now();
 
-	private LocalDate dueDate;
+	private LocalDate dueDate = LocalDate.now();
 
 	private BookCopy bookCopy;
 
@@ -35,4 +35,15 @@ public class CheckoutEntry implements Serializable {
 		this.bookCopy = bookCopy;
 	}
 
+	public String getBookTitle() {
+		return bookCopy.getBook().getTitle();
+	}
+
+	public String getCheckoutDateString() {
+		return checkoutDate.toString();
+	}
+
+	public String getDueDateString() {
+		return dueDate.toString();
+	}
 }
