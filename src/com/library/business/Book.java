@@ -6,23 +6,21 @@ import java.util.List;
 
 public class Book implements Serializable {
 
-    private String title;
+	private String title;
 
-    private String isbn;
+	private String isbn;
 
-    private BorrowDay borrowDay = BorrowDay.SEVEN_DAYS;
+	private BorrowDay borrowDay = BorrowDay.SEVEN_DAYS;
 
-    private BookType bookType = BookType.GENERAL;
+	private BookType bookType = BookType.GENERAL;
 
-    private List<BookCopy> bookCopies = new ArrayList<>();
+	private List<BookCopy> bookCopies = new ArrayList<>();
 
-    private List<Author> authors = new ArrayList<>();
+	private List<Author> authors = new ArrayList<>();
 
-    private List<Member> members = new ArrayList<>();
-    
-    Book(String isbn) {
-    	this.isbn = isbn;
-    }
+	Book(String isbn) {
+		this.isbn = isbn;
+	}
 
 	public String getTitle() {
 		return title;
@@ -68,7 +66,7 @@ public class Book implements Serializable {
 		this.bookCopies.add(bookCopy);
 		bookCopy.setBook(this);
 	}
-	
+
 	public List<Author> getAuthors() {
 		return authors;
 	}
@@ -77,5 +75,24 @@ public class Book implements Serializable {
 		this.authors = authors;
 	}
 
+	public BookCopy getAvailableBookCopy() {
+		for (BookCopy bookCopy : bookCopies) {
+			if (bookCopy.isAvailable()) {
+				return bookCopy;
+			}
+		}
 
+		return null;
+	}
+
+	public int countAvailableBookCopies() {
+		int count = 0;
+		for (BookCopy bookCopy : bookCopies) {
+			if (bookCopy.isAvailable()) {
+				count++;
+			}
+		}
+
+		return count;
+	}
 }
