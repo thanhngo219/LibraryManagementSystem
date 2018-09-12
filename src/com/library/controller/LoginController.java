@@ -1,5 +1,7 @@
 package com.library.controller;
 
+import com.library.business.Role;
+import com.library.business.User;
 import com.library.business.UserDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,15 +41,35 @@ public class LoginController {
 		
 		// Implement check ID and password 
 		UserDao userDao = new UserDao();
-		boolean temp = userDao.login(id, password);
-		if(temp) {
-			Parent root = FXMLLoader.load(getClass().getResource("../gui/homescreen.fxml"));
+		User currentUser = userDao.login(id, password);
+		if(currentUser != null) {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../gui/homescreen.fxml"));
+			Parent root = fxmlLoader.load();
 			Stage stage = new Stage();
 			stage.setScene(new Scene(root));
+
+			HomeController homeController = fxmlLoader.<HomeController>getController();
+			switch (currentUser.getRole()) {
+				case LIBRARIAN: {
+					homeController.disableBtnAddMember(true);
+					homeController.disableBtnEditMember(true);
+					break;
+				}
+				case ADMIN: {
+					homeController.disableBtnAddBook(true);
+					homeController.disableBtnAddBookCopy(true);
+					homeController.disableBtnAddCheckoutBook(true);
+					break;
+				}
+				default:
+					break;
+
+			}
+			homeController.initData(currentUser);
+
 			stage.show();
 			((Node)(event.getSource())).getScene().getWindow().hide();
 		}
-		System.out.println(temp);
 	}
 	
 	
