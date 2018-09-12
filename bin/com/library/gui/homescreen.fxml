@@ -12,8 +12,8 @@
          <children>
             <Button fx:id="btnAddMember" layoutX="262.0" layoutY="271.0" mnemonicParsing="false" onAction="#addMember" text="Add Member" />
             <Button fx:id="btnEditMember" layoutX="477.0" layoutY="270.0" mnemonicParsing="false" onAction="#editMember" prefHeight="27.0" prefWidth="122.0" text="Edit Member" />
-            <Button fx:id="btnaddBooks" layoutX="262.0" layoutY="334.0" mnemonicParsing="false" onAction="#addBooks" prefHeight="27.0" prefWidth="104.0" text="Add Books" />
-            <Button fx:id="btncheckoutBooks" layoutX="477.0" layoutY="332.0" mnemonicParsing="false" onAction="#checkoutBooks" prefHeight="27.0" prefWidth="122.0" text="Checkout Books" />
+            <Button fx:id="btnAddBook" layoutX="262.0" layoutY="334.0" mnemonicParsing="false" onAction="#addBooks" prefHeight="27.0" prefWidth="104.0" text="Add Books" />
+            <Button fx:id="btnCheckoutBook" layoutX="477.0" layoutY="332.0" mnemonicParsing="false" onAction="#checkoutBooks" prefHeight="27.0" prefWidth="122.0" text="Checkout Books" />
             <Button layoutX="258.0" layoutY="384.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="113.0" text="Add BookCopy" />
          </children>
       </Pane>

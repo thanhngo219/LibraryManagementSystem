@@ -16,17 +16,17 @@ public class UserDao implements Dao<User> {
         this.users = new ArrayList<>();
     }
 
-    public boolean login(String username, String password) {
+    public User login(String username, String password) {
         Dao userDao = new UserDao();
         DataAccess da = DataAccessFactory.getDataAccess();
         da.readFile(userDao);
         List<User> users = userDao.getObjects();
         for (User user : users) {
             if (user.getUserName().equals(username) && user.getPassword().equals(password)) {
-                return true;
+                return user;
             }
         }
-        return false;
+        return null;
     }
 
     @Override
