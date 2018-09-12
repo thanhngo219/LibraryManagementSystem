@@ -47,7 +47,7 @@ public class LoginController {
 			Parent root = fxmlLoader.load();
 			Stage stage = new Stage();
 			stage.setScene(new Scene(root));
-
+			stage.setTitle("Library Management System");
 			HomeController homeController = fxmlLoader.<HomeController>getController();
 			switch (currentUser.getRole()) {
 				case LIBRARIAN: {
