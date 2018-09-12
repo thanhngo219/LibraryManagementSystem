@@ -11,6 +11,15 @@ public class CheckoutEntry implements Serializable {
 
 	private BookCopy bookCopy;
 
+	public CheckoutEntry() {
+
+	}
+
+	public CheckoutEntry(BookCopy bookCopy) {
+		this.bookCopy = bookCopy;
+		this.dueDate = checkoutDate.plusDays(bookCopy.getBook().getBorrowDay().getDay());
+	}
+
 	public LocalDate getCheckoutDate() {
 		return checkoutDate;
 	}

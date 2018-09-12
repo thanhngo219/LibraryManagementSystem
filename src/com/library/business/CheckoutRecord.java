@@ -27,6 +27,7 @@ public class CheckoutRecord implements Serializable {
 
 	public void addCheckoutEntry(CheckoutEntry checkoutEntry) {
 		this.checkoutEntries.add(checkoutEntry);
+		checkoutEntry.getBookCopy().setAvailable(false);
 	}
 
 }

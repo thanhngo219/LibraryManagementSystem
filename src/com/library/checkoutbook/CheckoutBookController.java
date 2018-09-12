@@ -110,15 +110,11 @@ public class CheckoutBookController {
 			alert.showAndWait();
 			return;
 		}
-		CheckoutEntry checkoutEntry = new CheckoutEntry();
-		LocalDate now = LocalDate.now();
-		checkoutEntry.setCheckoutDate(now);
-		LocalDate dueDate = now.plusDays(book.getBorrowDay().getDay());
-		checkoutEntry.setDueDate(dueDate);
-		checkoutEntry.setBookCopy(bookCopy);
 
+		CheckoutEntry checkoutEntry = new CheckoutEntry(bookCopy);
 		member.getCheckoutRecord().addCheckoutEntry(checkoutEntry);
-		bookCopy.setAvailable(false);
+
+//		bookCopy.setAvailable(false);
 
 		Library.write();
 
