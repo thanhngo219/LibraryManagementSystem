@@ -1,4 +1,4 @@
-package com.library.bookcontroller;
+package com.library.member;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,9 +10,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("book.fxml"));
-        primaryStage.setTitle("Add Book");
-        primaryStage.setScene(new Scene(root, 500, 575));
+        Parent root = FXMLLoader.load(getClass().getResource("MemberController.fxml"));
+        primaryStage.setTitle("Add Member");
+        primaryStage.setScene(new Scene(root, 800, 375));
         primaryStage.show();
     }
 

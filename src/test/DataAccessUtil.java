@@ -30,7 +30,9 @@ public class DataAccessUtil {
 			FileInputStream fileInputStream = new FileInputStream(new File(OUTPUT_LIBRARY));
 			ObjectInputStream input = new ObjectInputStream(fileInputStream);
 			result = (Library) input.readObject();
+
 			input.close();
+			fileInputStream.close();
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -47,11 +49,12 @@ public class DataAccessUtil {
 		try {
 
 			// Store Serialized User Object in File
-			FileOutputStream fileOutputStream = new FileOutputStream(OUTPUT_LIBRARY);
+			FileOutputStream fileOutputStream = new FileOutputStream(new File(OUTPUT_LIBRARY));
 			ObjectOutputStream output = new ObjectOutputStream(fileOutputStream);
 			output.writeObject(library);
 
 			output.close();
+			fileOutputStream.close();
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -69,6 +72,7 @@ public class DataAccessUtil {
 			ObjectInputStream input = new ObjectInputStream(fileInputStream);
 			result = (List<Member>) input.readObject();
 			input.close();
+			fileInputStream.close();
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -85,11 +89,12 @@ public class DataAccessUtil {
 		try {
 
 			// Store Serialized User Object in File
-			FileOutputStream fileOutputStream = new FileOutputStream(OUTPUT_MEMBER);
+			FileOutputStream fileOutputStream = new FileOutputStream(new File(OUTPUT_MEMBER));
 			ObjectOutputStream output = new ObjectOutputStream(fileOutputStream);
 			output.writeObject(list);
 
 			output.close();
+			fileOutputStream.close();
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -107,6 +112,7 @@ public class DataAccessUtil {
 			ObjectInputStream input = new ObjectInputStream(fileInputStream);
 			result = (List<Book>) input.readObject();
 			input.close();
+			fileInputStream.close();
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -123,11 +129,12 @@ public class DataAccessUtil {
 		try {
 
 			// Store Serialized User Object in File
-			FileOutputStream fileOutputStream = new FileOutputStream(OUTPUT_BOOK);
+			FileOutputStream fileOutputStream = new FileOutputStream(new File(OUTPUT_BOOK));
 			ObjectOutputStream output = new ObjectOutputStream(fileOutputStream);
 			output.writeObject(list);
 
 			output.close();
+			fileOutputStream.close();
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 
-<Group xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library.controller.HomeController">
+<Group xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library.controller.HomeController">
    <children>
       <Pane layoutX="-212.0" layoutY="-206.0" prefHeight="435.0" prefWidth="675.0">
          <children>
@@ -14,7 +18,8 @@
             <Button fx:id="btnAddBook" layoutX="262.0" layoutY="334.0" mnemonicParsing="false" onAction="#addBooks" prefHeight="27.0" prefWidth="104.0" text="Add Books" />
             <Button fx:id="btnCheckoutBook" layoutX="477.0" layoutY="332.0" mnemonicParsing="false" onAction="#checkoutBooks" prefHeight="27.0" prefWidth="122.0" text="Checkout Books" />
             <Button fx:id="btnAddBookCopy" layoutX="258.0" layoutY="384.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="113.0" text="Add BookCopy" />
-            <Label layoutX="262.0" layoutY="231.0" text="Home Screen" />
+            <Label alignment="CENTER" layoutX="262.0" layoutY="231.0" prefHeight="17.0" prefWidth="358.0" text="Home Screen" />
+            <Button layoutX="477.0" layoutY="384.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="122.0" text="Search Book" />
          </children>
       </Pane>
    </children>

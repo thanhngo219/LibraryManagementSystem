@@ -1,4 +1,4 @@
-package com.library.bookcontroller;
+package com.library.controller;
 
 import com.library.business.Author;
 import com.library.business.BookType;
