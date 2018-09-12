@@ -18,6 +18,8 @@ public class HomeController {
 	@FXML
 	private Button btncheckoutBooks;
 	
+	@FXML
+	private Button btn;
 	
 	public void addMember(ActionEvent event) {
 		 System.out.println("addMember!");
@@ -28,6 +30,10 @@ public class HomeController {
 	}
 	
 	public void addBooks(ActionEvent event) {
+		System.out.println("addBooks!");
+	}
+
+	public void addBook(ActionEvent event) {
 		System.out.println("addBooks!");
 	}
 
