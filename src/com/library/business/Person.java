@@ -1,6 +1,8 @@
 package com.library.business;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable {
 
     private String firstName;
 
