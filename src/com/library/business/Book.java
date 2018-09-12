@@ -1,5 +1,7 @@
 package com.library.business;
 
+import java.util.List;
+
 public class Book {
 
     private String title;
@@ -9,4 +11,10 @@ public class Book {
     private BorrowDay borrowDay;
 
     private BookType bookType;
+
+    private List<BookCopy> bookCopies;
+
+    private List<Author> authors;
+
+
 }
