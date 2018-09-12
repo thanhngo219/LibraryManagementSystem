@@ -17,6 +17,8 @@ public class Book implements Serializable {
     private List<BookCopy> bookCopies = new ArrayList<>();
 
     private List<Author> authors = new ArrayList<>();
+
+    private List<Member> members = new ArrayList<>();
     
     public Book() {
     	

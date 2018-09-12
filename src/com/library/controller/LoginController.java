@@ -1,6 +1,5 @@
 package com.library.controller;
 
-import com.library.business.Role;
 import com.library.business.User;
 import com.library.business.UserDao;
 import javafx.event.ActionEvent;
@@ -10,22 +9,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class LoginController {
-	
-	@FXML
-	private Label lblID;
-	
-	@FXML
-	private Label lblPassword;
-	
-	@FXML
-	private Label lblLogin;
-	
+
 	@FXML
 	private TextField txtID;
 	
