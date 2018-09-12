@@ -41,7 +41,7 @@ public class LoginController {
 		UserDao userDao = new UserDao();
 		boolean temp = userDao.login(id, password);
 		if(temp) {
-			Parent root = FXMLLoader.load(getClass().getResource("../gui/login.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("../gui/homescreen.fxml"));
 			Stage stage = new Stage();
 			stage.setScene(new Scene(root));
 			stage.show();
