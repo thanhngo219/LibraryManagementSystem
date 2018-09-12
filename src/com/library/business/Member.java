@@ -1,20 +1,20 @@
 package com.library.business;
 
 public class Member extends Person {
-	private Role role;
+	private int memberId;
 
 	private CheckoutRecord checkoutRecord = new CheckoutRecord();
 
-	public Member() {
-
+	Member(int memberId) {
+		this.memberId = memberId;
 	}
 
-	public Role getRole() {
-		return role;
+	public int getMemberId() {
+		return memberId;
 	}
 
-	public void setRole(Role role) {
-		this.role = role;
+	public void setMemberId(int memberId) {
+		this.memberId = memberId;
 	}
 
 	public CheckoutRecord getCheckoutRecord() {

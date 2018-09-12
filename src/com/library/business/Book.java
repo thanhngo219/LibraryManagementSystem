@@ -20,8 +20,8 @@ public class Book implements Serializable {
 
     private List<Member> members = new ArrayList<>();
     
-    public Book() {
-    	
+    Book(String isbn) {
+    	this.isbn = isbn;
     }
 
 	public String getTitle() {

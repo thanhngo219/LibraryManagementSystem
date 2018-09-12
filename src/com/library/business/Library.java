@@ -8,35 +8,35 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Library implements Serializable {
 	public static final String OUTPUT_LIBRARY = System.getProperty("user.dir") + "/library.txt";
 	public static Library singleton = new Library();
 
-	private List<Book> books = new ArrayList<>();
-	private List<Member> members = new ArrayList<>();
+	private Map<String, Book> books = new HashMap<String, Book>();
+	private Map<Integer, Member> members = new HashMap<Integer, Member>();
 
 	private Library() {
 
 	}
 
-	public List<Book> getBooks() {
-		return books;
-	}
-
-	public void setBooks(List<Book> books) {
-		this.books = books;
-	}
-
-	public List<Member> getMembers() {
-		return members;
-	}
-
-	public void setMembers(List<Member> members) {
-		this.members = members;
-	}
+//	public Map<String, Book> getBooks() {
+//		return books;
+//	}
+//
+//	public void setBooks(Map<String, Book> books) {
+//		this.books = books;
+//	}
+//
+//	public Map<Integer, Member> getMembers() {
+//		return members;
+//	}
+//
+//	public void setMembers(Map<Integer, Member> members) {
+//		this.members = members;
+//	}
 
 //	public void addMember(Member member) {
 //		members.add(member);
@@ -46,16 +46,34 @@ public class Library implements Serializable {
 //		books.add(book);
 //	}
 
-	public static Book newBook() {
-		Book book = new Book();
-		singleton.books.add(book);
+	public static Book newBook(String isbn) {
+		if (singleton.books.containsKey(isbn)) {
+			return null;
+		}
+		Book book = new Book(isbn);
+		singleton.books.put(isbn, book);
 		return book;
 	}
 
+	public static Book getBook(String isbn) {
+		return singleton.books.get(isbn);
+	}
+
 	public static Member newMember() {
-		Member member = new Member();
-		singleton.members.add(member);
+		int max = 0;
+		for (int key : singleton.members.keySet()) {
+			if (key > max) {
+				max = key;
+			}
+		}
+		max++;
+		Member member = new Member(max);
+		singleton.members.put(max, member);
 		return member;
+	}
+
+	public static Member getMember(int memberId) {
+		return singleton.members.get(memberId);
 	}
 
 	public static void read() {
