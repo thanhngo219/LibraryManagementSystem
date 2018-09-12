@@ -40,29 +40,24 @@ public class LoginController {
 			stage.setTitle("Library Management System");
 			HomeController homeController = fxmlLoader.<HomeController>getController();
 			switch (currentUser.getRole()) {
-				case LIBRARIAN: {
-					homeController.disableBtnAddMember(true);
-					homeController.disableBtnEditMember(true);
-					break;
-				}
-				case ADMIN: {
-					homeController.disableBtnAddBook(true);
-					homeController.disableBtnAddBookCopy(true);
-					homeController.disableBtnAddCheckoutBook(true);
-					break;
-				}
-				default:
-					break;
+                case LIBRARIAN: {
+                    homeController.disableBtnAddMember(true);
+                    homeController.disableBtnEditMember(true);
+                    break;
+                }
+                case ADMIN: {
+                    homeController.disableBtnAddBook(true);
+                    homeController.disableBtnAddBookCopy(true);
+                    homeController.disableBtnAddCheckoutBook(true);
+                    break;
+                }
+                default:
+                    break;
+            }
+            homeController.initData(currentUser);
 
-			}
-			homeController.initData(currentUser);
-
-			stage.show();
-			((Node)(event.getSource())).getScene().getWindow().hide();
-		}
-	}
-	
-	
-	
-	
+            stage.show();
+            ((Node) (event.getSource())).getScene().getWindow().hide();
+        }
+    }
 }

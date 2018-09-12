@@ -1,26 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<Group xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library.homescreen.HomeController">
-   <children>
-      <Pane layoutX="-212.0" layoutY="-206.0" prefHeight="435.0" prefWidth="675.0">
-         <children>
-            <Button fx:id="btnAddMember" layoutX="262.0" layoutY="271.0" mnemonicParsing="false" onAction="#addMember" text="Add Member" />
-            <Button fx:id="btnEditMember" layoutX="477.0" layoutY="270.0" mnemonicParsing="false" onAction="#editMember" prefHeight="27.0" prefWidth="122.0" text="Edit Member" />
-            <Button fx:id="btnAddBook" layoutX="262.0" layoutY="334.0" mnemonicParsing="false" onAction="#addBooks" prefHeight="27.0" prefWidth="104.0" text="Add Books" />
-            <Button fx:id="btnCheckoutBook" layoutX="477.0" layoutY="332.0" mnemonicParsing="false" onAction="#checkoutBooks" prefHeight="27.0" prefWidth="122.0" text="Checkout Books" />
-            <Button fx:id="btnAddBookCopy" layoutX="258.0" layoutY="384.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="113.0" text="Add BookCopy" />
-            <Label alignment="CENTER" layoutX="262.0" layoutY="231.0" prefHeight="17.0" prefWidth="358.0" text="Home Screen" />
-            <Button layoutX="477.0" layoutY="384.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="122.0" text="Search Book" />
-         </children>
-      </Pane>
-   </children>
-</Group>
+<Pane prefHeight="311.0" prefWidth="478.0" style="-fx-background-color: #85C1E9;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library.homescreen.HomeController">
+    <children>
+        <Label layoutX="174.0" layoutY="14.0" style="-fx-font-weight: bold;" text="Home Screen" textFill="#5b2c6f">
+            <font>
+                <Font size="22.0" />
+            </font>
+        </Label>
+        <GridPane alignment="CENTER" layoutX="50.0" layoutY="87.0" prefHeight="178.0" prefWidth="377.0">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="81.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="55.0" minHeight="0.0" prefHeight="47.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Button fx:id="btnAddBookCopy" mnemonicParsing="false" onAction="#btnAddBookCopyOnClick" prefHeight="27.0" prefWidth="120.0" text="Add BookCopy" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Button fx:id="btnAddMember" mnemonicParsing="false" onAction="#btnAddMemberOnClick" prefHeight="27.0" prefWidth="120.0" text="Add Member" />
+                <Button fx:id="btnEditMember" mnemonicParsing="false" onAction="#btnEditMemberOnClick" prefHeight="27.0" prefWidth="120.0" text="Edit Member" GridPane.rowIndex="1" />
+                <Button fx:id="btnAddBook" mnemonicParsing="false" onAction="#btnAddBookOnClick" prefHeight="27.0" prefWidth="120.0" text="Add Books" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Button fx:id="btnCheckoutBook" mnemonicParsing="false" onAction="#btnCheckoutBookOnClick" prefHeight="27.0" prefWidth="120.0" text="Checkout Books" GridPane.columnIndex="1" />
+                <Button layoutX="477.0" layoutY="384.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="120.0" text="Search Book" GridPane.rowIndex="2" />
+            </children>
+        </GridPane>
+    </children>
+</Pane>
