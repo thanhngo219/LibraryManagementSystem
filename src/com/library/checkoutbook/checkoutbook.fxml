@@ -40,7 +40,7 @@
 						<Insets left="10.0" right="10.0" />
 					</GridPane.margin>
 				</TextField>
-				<Label text="Name:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+				<Label text="Member Name:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
 				<Label fx:id="lblMemberName" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
 					<GridPane.margin>
 						<Insets left="10.0" right="10.0" />
@@ -49,13 +49,13 @@
 						<Font name="System Bold" size="18.0" />
 					</font>
 				</Label>
-				<Label text="ISBN:" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+				<Label text="Book ISBN:" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
 				<TextField fx:id="txtISBN" onAction="#searchBook" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
 					<GridPane.margin>
 						<Insets left="10.0" right="10.0" />
 					</GridPane.margin>
 				</TextField>
-				<Label text="Book Title" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+				<Label text="Book Title:" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
 				<Button mnemonicParsing="false" onAction="#checkoutBook" text="Check out" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
 				<Label fx:id="lblBookTitle" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
 					<GridPane.margin>

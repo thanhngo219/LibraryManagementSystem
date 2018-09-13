@@ -15,6 +15,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 
 public class CheckoutBookController {
 	@FXML
@@ -40,15 +41,24 @@ public class CheckoutBookController {
 	}
 
 	private Member getMember() {
-		int memberId;
-		try {
-			memberId = Integer.parseInt(txtMemberID.getText().trim());
-		} catch (Exception e) {
-			e.printStackTrace();
-			Alert alert = new Alert(AlertType.ERROR, "Invalid Member ID: " + txtMemberID.getText().trim(),
-					ButtonType.OK);
+		String sMemberId = txtMemberID.getText().trim();
+		if (sMemberId.length() == 0) {
+			Alert alert = new Alert(AlertType.ERROR, "Please input Member ID", ButtonType.OK);
 			alert.setHeaderText(null);
 			alert.showAndWait();
+			lblMemberName.setText("");
+			tableCheckoutEntries.getItems().clear();
+			return null;
+		}
+		int memberId;
+		try {
+			memberId = Integer.parseInt(sMemberId);
+		} catch (Exception e) {
+			Alert alert = new Alert(AlertType.ERROR, "Invalid Member ID: " + sMemberId, ButtonType.OK);
+			alert.setHeaderText(null);
+			alert.showAndWait();
+			lblMemberName.setText("");
+			tableCheckoutEntries.getItems().clear();
 			return null;
 		}
 		Member member = Library.getMember(memberId);
@@ -56,6 +66,8 @@ public class CheckoutBookController {
 			Alert alert = new Alert(AlertType.ERROR, "Cannot find Member with ID: " + memberId, ButtonType.OK);
 			alert.setHeaderText(null);
 			alert.showAndWait();
+			lblMemberName.setText("");
+			tableCheckoutEntries.getItems().clear();
 		} else {
 			lblMemberName.setText(member.getFirstName() + " " + member.getLastName());
 			tableCheckoutEntries
@@ -66,14 +78,35 @@ public class CheckoutBookController {
 	}
 
 	private Book getBook() {
-		Book book = Library.getBook(txtISBN.getText().trim());
-		if (book == null) {
-			Alert alert = new Alert(AlertType.ERROR, "Cannot find Book with ISBN: " + txtISBN.getText().trim(),
-					ButtonType.OK);
+		String sISBN = txtISBN.getText().trim();
+		if (sISBN.length() == 0) {
+			Alert alert = new Alert(AlertType.ERROR, "Please input Book ISBN", ButtonType.OK);
 			alert.setHeaderText(null);
 			alert.showAndWait();
+			lblBookTitle.setText("");
+			lblAvailableCopies.setText("");
+			return null;
+		}
+		Book book = Library.getBook(sISBN);
+		if (book == null) {
+			Alert alert = new Alert(AlertType.ERROR, "Cannot find Book with ISBN: " + sISBN, ButtonType.OK);
+			alert.setHeaderText(null);
+			alert.showAndWait();
+			lblBookTitle.setText("");
+			lblAvailableCopies.setText("");
 		} else {
-			lblAvailableCopies.setText(book.countAvailableBookCopies() + " available copies");
+			lblBookTitle.setText(book.getTitle());
+			int count = book.countAvailableBookCopies();
+			if (count == 0) {
+				lblAvailableCopies.setText("No copies available");
+				lblAvailableCopies.setTextFill(Color.web("#ff0000"));
+			} else if (count == 1) {
+				lblAvailableCopies.setText("1 available copy");
+				lblAvailableCopies.setTextFill(Color.web("#2e7d32"));
+			} else {
+				lblAvailableCopies.setText(book.countAvailableBookCopies() + " available copies");
+				lblAvailableCopies.setTextFill(Color.web("#2e7d32"));
+			}
 		}
 
 		return book;
@@ -84,10 +117,7 @@ public class CheckoutBookController {
 	}
 
 	public void searchBook(ActionEvent event) {
-		Book book = getBook();
-		if (book != null) {
-			lblBookTitle.setText(book.getTitle());
-		}
+		getBook();
 	}
 
 	public void checkoutBook(ActionEvent event) {
