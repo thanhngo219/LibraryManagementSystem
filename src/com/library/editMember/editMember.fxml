@@ -7,8 +7,9 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" prefHeight="323.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library.editMember.EditMemberController">
+<GridPane alignment="CENTER" prefHeight="323.0" prefWidth="823.0" style="-fx-background-color: #85C1E9;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library.editMember.EditMemberController">
     <columnConstraints>
         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -34,7 +35,10 @@
       <Label text="Zip" GridPane.columnIndex="2" GridPane.rowIndex="4" />
       <Button mnemonicParsing="false" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="5" />
       <Button mnemonicParsing="false" text="Delete" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-      <Label text="Edit Member" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+      <Label style="-fx-font-weight: bold;" text="Edit Member" textFill="#5b2c6f" GridPane.columnIndex="1" GridPane.columnSpan="2">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
       <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
