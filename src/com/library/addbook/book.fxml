@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="632.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library.addbook.BookController">
+<SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="632.0" prefWidth="607.0" style="-fx-background-color: #85C1E9;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library.addbook.BookController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="287.0" prefWidth="637.0">
          <children>
@@ -27,7 +27,7 @@
               <Button fx:id="btnAddBook" layoutX="227.0" layoutY="271.0" mnemonicParsing="false" onAction="#addBook" prefHeight="27.0" prefWidth="151.0" text="Add" />
               <ComboBox fx:id="cbbBookType" layoutX="362.0" layoutY="172.0" prefHeight="27.0" prefWidth="167.0" />
               <ComboBox fx:id="cbbBorrowDay" layoutX="362.0" layoutY="219.0" prefHeight="27.0" prefWidth="167.0" />
-              <Label layoutX="252.0" layoutY="1.0" style="-fx-font-weight: bold;" text="Add Book" textFill="#0ae47e">
+              <Label layoutX="252.0" layoutY="1.0" style="-fx-font-weight: bold;" text="Add Book" textFill="#5b2c6f">
                <font>
                   <Font size="18.0" />
                </font></Label>

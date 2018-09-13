@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library.addmember.MemberController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library.addmember.MemberController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="327.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="337.0" prefWidth="640.0" style="-fx-background-color: #85C1E9;" VBox.vgrow="ALWAYS">
       <children>
             <Label layoutX="25.0" layoutY="54.0" prefHeight="17.0" prefWidth="110.0" text="MemberID" />
             <TextField fx:id="txtMemberID" disable="true" layoutX="126.0" layoutY="49.0" />
@@ -27,7 +26,7 @@
             <TextField fx:id="txtState" layoutX="401.0" layoutY="154.0" />
             <Label layoutX="333.0" layoutY="225.0" text="Zip" />
             <TextField fx:id="txtZip" layoutX="401.0" layoutY="220.0" />
-            <Label alignment="CENTER" layoutX="40.0" layoutY="14.0" prefHeight="27.0" prefWidth="556.0" style="-fx-background-color: yellow;" text="Add New Member" wrapText="true" />
+            <Label alignment="CENTER" layoutX="135.0" layoutY="14.0" prefHeight="17.0" prefWidth="398.0" style="-fx-font-weight: bold; -fx-font-size: 18;" text="Add New Member" textFill="#5b2c6f" wrapText="true" />
             <Button fx:id="btnAddMember" layoutX="193.0" layoutY="278.0" mnemonicParsing="false" onAction="#btnAddMemberOnClick" prefHeight="27.0" prefWidth="267.0" text="Add" />
       </children>
     </AnchorPane>
