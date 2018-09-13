@@ -57,6 +57,7 @@ public class CheckoutBookStage extends Stage {
 
 			Scene scene = new Scene(root, 800, 600);
 			setScene(scene);
+			setTitle("Check out Book");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
