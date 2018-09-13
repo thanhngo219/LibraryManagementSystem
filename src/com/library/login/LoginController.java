@@ -62,6 +62,8 @@ public class LoginController {
             case LIBRARIAN: {
                 homeController.disableBtnAddMember(true);
                 homeController.disableBtnEditMember(true);
+                homeController.disableBtnAddBook(true);
+                homeController.disableBtnAddBookCopy(true);
                 break;
             }
             case ADMIN: {
