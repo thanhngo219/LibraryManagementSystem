@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library.login.LoginController">
+<GridPane alignment="center" hgap="10" style="-fx-background-color: #85C1E9;" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library.login.LoginController">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -18,7 +18,7 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <AnchorPane prefHeight="223.0" prefWidth="473.0" style="-fx-background-color: #85C1E9;">
+      <AnchorPane prefHeight="223.0" prefWidth="473.0">
          <children>
             <Label layoutX="45.0" layoutY="79.0" text="ID" />
             <Label layoutX="209.0" layoutY="34.0" style="-fx-font-weight: bold;" text="Login" textFill="#5b2c6f">
