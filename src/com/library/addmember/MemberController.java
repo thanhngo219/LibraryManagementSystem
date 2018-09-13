@@ -6,7 +6,9 @@ import com.library.business.Library;
 import com.library.business.Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 
 public class MemberController {
@@ -39,6 +41,28 @@ public class MemberController {
     private Button btnAddMember;
 
     public void btnAddMemberOnClick(ActionEvent event) {
+
+        if (txtFirstName.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "First Name cannot be empty", ButtonType.OK);
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return;
+        }
+
+        if (txtLastName.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Last Name cannot be empty", ButtonType.OK);
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return;
+        }
+
+        if (txtPhoneNumber.getText() == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Phone Number cannot be empty", ButtonType.OK);
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return;
+        }
+
         Member member = Library.newMember();
 
         member.setFirstName(txtFirstName.getText());
@@ -49,6 +73,10 @@ public class MemberController {
         member.setCheckoutRecord(new CheckoutRecord());
 
         Library.write();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Member is added", ButtonType.OK);
+        alert.setHeaderText(null);
+        alert.showAndWait();
+        txtMemberID.setText(Integer.toString(member.getMemberId()));
     }
 
 

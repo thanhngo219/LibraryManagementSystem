@@ -99,8 +99,38 @@ public class BookController implements Initializable {
         BookType bookType = cbbBookType.getValue();
         BorrowDay borrowDay = cbbBorrowDay.getValue();
 
-        if (title == null || isbnNumber == null || author == null || bookType == null || borrowDay == null) {
-            System.out.println("All the fields cannot be empty.");
+        if (title.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Title cannot be empty", ButtonType.OK);
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return;
+        }
+
+        if (isbnNumber.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "ISBN cannot be empty", ButtonType.OK);
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return;
+        }
+
+        if (author == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Author cannot be empty", ButtonType.OK);
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return;
+        }
+
+        if (bookType == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Book Type cannot be empty", ButtonType.OK);
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return;
+        }
+
+        if (borrowDay == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Borrow day cannot be empty", ButtonType.OK);
+            alert.setHeaderText(null);
+            alert.showAndWait();
             return;
         }
 
@@ -112,6 +142,10 @@ public class BookController implements Initializable {
 
         BookCopy newBookCopy = Library.newBookCopy(newBook);
         newBook.getBookCopies().add(newBookCopy);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "New Book is added", ButtonType.OK);
+        alert.setHeaderText(null);
+        alert.showAndWait();
 
         Library.write();
         tbvBook.getItems().clear();
