@@ -6,6 +6,8 @@ import java.util.List;
 
 public class Book implements Serializable {
 
+	private static final long serialVersionUID = 3L;
+
 	private String title;
 
 	private String isbn;
@@ -94,5 +96,22 @@ public class Book implements Serializable {
 		}
 
 		return count;
+	}
+
+	public String getAuthorName() {
+		StringBuilder sb = new StringBuilder();
+		for(Author author : authors) {
+			sb.append(author.toString());
+			sb.append("\n");
+		}
+		return sb.toString();
+	}
+
+	public String getStrBorrowDay() {
+		return Integer.toString(this.borrowDay.getDay());
+	}
+
+	public String getStrBookType() {
+		return this.bookType.toString();
 	}
 }

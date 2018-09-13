@@ -49,6 +49,10 @@ public class Library implements Serializable {
 
     public static Map<String, Book> getMapBooks() { return singleton.books;}
 
+    public static List<Book> getBooks() {
+		return new ArrayList<>(singleton.books.values());
+	}
+
 	public static Book newBook(String isbn) {
 		if (singleton.books.containsKey(isbn)) {
 			return null;

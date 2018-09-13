@@ -5,13 +5,15 @@ import java.time.LocalDate;
 
 public class CheckoutEntry implements Serializable {
 
+	private static final long serialVersionUID = 5L;
+
 	private LocalDate checkoutDate = LocalDate.now();
 
 	private LocalDate dueDate = LocalDate.now();
 
 	private BookCopy bookCopy;
 
-	CheckoutEntry(BookCopy bookCopy) {
+	public CheckoutEntry(BookCopy bookCopy) {
 		this.bookCopy = bookCopy;
 		this.dueDate = checkoutDate.plusDays(bookCopy.getBook().getBorrowDay().getDay());
 		bookCopy.setAvailable(false);

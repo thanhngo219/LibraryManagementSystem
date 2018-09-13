@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 public class BookCopy implements Serializable {
 
+	private static final long serialVersionUID = 4L;
+
 	private Integer bookCopyId;
 
 	private boolean available = true;

@@ -1,6 +1,9 @@
 package com.library.business;
 
 public class Member extends Person {
+
+	private static final long serialVersionUID = 7L;
+
 	private int memberId;
 
 	private CheckoutRecord checkoutRecord = new CheckoutRecord();
