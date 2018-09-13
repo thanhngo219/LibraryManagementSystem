@@ -30,11 +30,11 @@
                 <RowConstraints maxHeight="55.0" minHeight="0.0" prefHeight="47.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button fx:id="btnAddBookCopy" mnemonicParsing="false" onAction="#btnAddBookCopyOnClick" prefHeight="27.0" prefWidth="120.0" text="Add BookCopy" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Button fx:id="btnAddBookCopy" mnemonicParsing="false" onAction="#btnAddBookCopyOnClick" prefHeight="27.0" prefWidth="120.0" text="Add Book Copy" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <Button fx:id="btnAddMember" mnemonicParsing="false" onAction="#btnAddMemberOnClick" prefHeight="27.0" prefWidth="120.0" text="Add Member" />
                 <Button fx:id="btnEditMember" mnemonicParsing="false" onAction="#btnEditMemberOnClick" prefHeight="27.0" prefWidth="120.0" text="Edit Member" GridPane.rowIndex="1" />
-                <Button fx:id="btnAddBook" mnemonicParsing="false" onAction="#btnAddBookOnClick" prefHeight="27.0" prefWidth="120.0" text="Add Books" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <Button fx:id="btnCheckoutBook" mnemonicParsing="false" onAction="#btnCheckoutBookOnClick" prefHeight="27.0" prefWidth="120.0" text="Checkout Books" GridPane.columnIndex="1" />
+                <Button fx:id="btnAddBook" mnemonicParsing="false" onAction="#btnAddBookOnClick" prefHeight="27.0" prefWidth="120.0" text="Add Book" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Button fx:id="btnCheckoutBook" mnemonicParsing="false" onAction="#btnCheckoutBookOnClick" prefHeight="27.0" prefWidth="120.0" text="Checkout Book" GridPane.columnIndex="1" />
                 <Button fx:id="btnSearchBook" layoutX="477.0" layoutY="384.0" mnemonicParsing="false" onAction="#btnSearchBookOnClick" prefHeight="27.0" prefWidth="120.0" text="Search Book" GridPane.rowIndex="2" />
             </children>
         </GridPane>

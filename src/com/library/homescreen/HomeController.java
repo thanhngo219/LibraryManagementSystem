@@ -54,7 +54,7 @@ public class HomeController {
 	}
 
 	public void btnCheckoutBookOnClick(ActionEvent event) throws Exception {
-		navigateToNewScreen("../checkoutbook/checkoutbook.fxml", "Check out Book");
+		navigateToNewScreen("../checkoutbook/checkoutbook.fxml", "Checkout Book");
 	}
 
 	public void btnSearchBookOnClick(ActionEvent event) throws Exception {
