@@ -66,13 +66,17 @@ public class Library implements Serializable {
 
 	public static BookCopy newBookCopy(Book book) {
 		List<BookCopy> bookCopies = book.getBookCopies();
-		Comparator<BookCopy> comparator = Comparator.comparing(BookCopy::getBookCopyId);
 		int nextId;
 		if (bookCopies.isEmpty()) {
 			nextId = 1;
 		} else {
-			BookCopy latestBookCopy = bookCopies.stream().max(comparator).get();
-			nextId = latestBookCopy.getBookCopyId() + 1;
+			int max = 0;
+			for (BookCopy bookCopy : bookCopies) {
+				if (bookCopy.getBookCopyId() > max) {
+					max = bookCopy.getBookCopyId();
+				}
+			}
+			nextId = max + 1;
 		}
 
 		BookCopy newBookCopy = new BookCopy();

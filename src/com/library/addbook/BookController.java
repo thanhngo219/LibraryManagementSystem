@@ -152,7 +152,6 @@ public class BookController implements Initializable {
 		newBook.setBorrowDay(borrowDay);
 
 		BookCopy newBookCopy = Library.newBookCopy(newBook);
-		newBook.getBookCopies().add(newBookCopy);
 
 		Alert alert = new Alert(Alert.AlertType.INFORMATION, "New Book is added", ButtonType.OK);
 		alert.setHeaderText(null);
