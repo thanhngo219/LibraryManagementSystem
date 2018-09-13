@@ -1,13 +1,19 @@
 package com.library.addbook;
 
 import com.library.business.*;
+import com.library.homescreen.HomeController;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -36,6 +42,12 @@ public class BookController implements Initializable {
 
     @FXML
     private Button btnAddBook;
+
+    private User currentUser;
+
+    public void initData(User currentUser) {
+        this.currentUser = currentUser;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -87,6 +99,11 @@ public class BookController implements Initializable {
         BookType bookType = cbbBookType.getValue();
         BorrowDay borrowDay = cbbBorrowDay.getValue();
 
+        if (title == null || isbnNumber == null || author == null || bookType == null || borrowDay == null) {
+            System.out.println("All the fields cannot be empty.");
+            return;
+        }
+
         Book newBook = Library.newBook(isbnNumber);
         newBook.setTitle(title);
         newBook.getAuthors().add(author);
@@ -100,4 +117,5 @@ public class BookController implements Initializable {
         tbvBook.getItems().clear();
         tbvBook.setItems(FXCollections.observableArrayList(Library.getBooks()));
     }
+
 }
