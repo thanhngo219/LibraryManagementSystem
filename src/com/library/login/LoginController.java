@@ -67,8 +67,6 @@ public class LoginController {
                 break;
             }
             case ADMIN: {
-                homeController.disableBtnAddBook(true);
-                homeController.disableBtnAddBookCopy(true);
                 homeController.disableBtnAddCheckoutBook(true);
                 break;
             }
