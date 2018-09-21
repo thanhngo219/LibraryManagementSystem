@@ -33,7 +33,7 @@
                   <Insets left="10.0" right="10.0" />
                </GridPane.margin></TextField>
       <Button fx:id="btnAddBookCopy" mnemonicParsing="false" onAction="#addBookCopy" prefHeight="27.0" prefWidth="117.0" text="Add Book Copy" GridPane.columnSpan="3" GridPane.rowIndex="3" />
-            <Label text="Book Title:" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label text="Title:" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
             <Label fx:id="lblBookTitle" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="18.0" />

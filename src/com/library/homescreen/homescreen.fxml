@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -8,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="311.0" prefWidth="478.0" style="-fx-background-color: #85C1E9;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library.homescreen.HomeController">
+<Pane prefHeight="311.0" prefWidth="478.0" style="-fx-background-color: #85C1E9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library.homescreen.HomeController">
     <children>
         <Label layoutX="174.0" layoutY="14.0" style="-fx-font-weight: bold;" text="Home Screen" textFill="#5b2c6f">
             <font>
@@ -31,7 +35,7 @@
                 <Button fx:id="btnEditMember" mnemonicParsing="false" onAction="#btnEditMemberOnClick" prefHeight="27.0" prefWidth="120.0" text="Edit Member" GridPane.rowIndex="1" />
                 <Button fx:id="btnAddBook" mnemonicParsing="false" onAction="#btnAddBookOnClick" prefHeight="27.0" prefWidth="120.0" text="Add Books" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <Button fx:id="btnCheckoutBook" mnemonicParsing="false" onAction="#btnCheckoutBookOnClick" prefHeight="27.0" prefWidth="120.0" text="Checkout Books" GridPane.columnIndex="1" />
-                <Button layoutX="477.0" layoutY="384.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="120.0" text="Search Book" GridPane.rowIndex="2" />
+                <Button fx:id="btnSearchBook" layoutX="477.0" layoutY="384.0" mnemonicParsing="false" onAction="#btnSearchBookOnClick" prefHeight="27.0" prefWidth="120.0" text="Search Book" GridPane.rowIndex="2" />
             </children>
         </GridPane>
     </children>

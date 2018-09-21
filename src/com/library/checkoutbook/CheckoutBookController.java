@@ -1,5 +1,8 @@
 package com.library.checkoutbook;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import com.library.business.Book;
 import com.library.business.BookCopy;
 import com.library.business.CheckoutEntry;
@@ -9,15 +12,19 @@ import com.library.business.Member;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.paint.Color;
 
-public class CheckoutBookController {
+public class CheckoutBookController implements Initializable {
 	@FXML
 	private TextField txtMemberID;
 
@@ -38,6 +45,43 @@ public class CheckoutBookController {
 
 	public TableView<CheckoutEntry> getTableCheckoutEntries() {
 		return tableCheckoutEntries;
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		tableCheckoutEntries.setEditable(false);
+
+		TableColumn<CheckoutEntry, String> bookTitleCol = new TableColumn<>(String.format("Book Title"));
+		bookTitleCol.setMinWidth(400);
+		bookTitleCol.setEditable(false);
+		bookTitleCol.setCellValueFactory(new PropertyValueFactory<CheckoutEntry, String>("bookTitle"));
+		bookTitleCol.setCellFactory(TextFieldTableCell.forTableColumn());
+
+		TableColumn<CheckoutEntry, String> bookISBNCol = new TableColumn<>(String.format("ISBN"));
+		bookISBNCol.setMinWidth(80);
+		bookISBNCol.setEditable(false);
+		bookISBNCol.setCellValueFactory(new PropertyValueFactory<CheckoutEntry, String>("bookISBN"));
+		bookISBNCol.setCellFactory(TextFieldTableCell.forTableColumn());
+
+		TableColumn<CheckoutEntry, String> bookCopyIdCol = new TableColumn<>(String.format("Copy Id"));
+		bookCopyIdCol.setMinWidth(80);
+		bookCopyIdCol.setEditable(false);
+		bookCopyIdCol.setCellValueFactory(new PropertyValueFactory<CheckoutEntry, String>("bookCopyId"));
+		bookCopyIdCol.setCellFactory(TextFieldTableCell.forTableColumn());
+
+		TableColumn<CheckoutEntry, String> checkoutDateCol = new TableColumn<>(String.format("Checkout Date"));
+		checkoutDateCol.setMinWidth(120);
+		checkoutDateCol.setEditable(false);
+		checkoutDateCol.setCellValueFactory(new PropertyValueFactory<CheckoutEntry, String>("checkoutDateString"));
+		checkoutDateCol.setCellFactory(TextFieldTableCell.forTableColumn());
+
+		TableColumn<CheckoutEntry, String> dueDateCol = new TableColumn<>(String.format("Due Date"));
+		dueDateCol.setMinWidth(120);
+		dueDateCol.setEditable(false);
+		dueDateCol.setCellValueFactory(new PropertyValueFactory<CheckoutEntry, String>("dueDateString"));
+		dueDateCol.setCellFactory(TextFieldTableCell.forTableColumn());
+
+		tableCheckoutEntries.getColumns().addAll(bookTitleCol, bookISBNCol, bookCopyIdCol, checkoutDateCol, dueDateCol);
 	}
 
 	private Member getMember() {
@@ -147,10 +191,6 @@ public class CheckoutBookController {
 
 		getBook();
 		getMember();
-	}
-
-	public void close(ActionEvent event) {
-		CheckoutBookStage.INSTANCE.hide();
 	}
 
 }

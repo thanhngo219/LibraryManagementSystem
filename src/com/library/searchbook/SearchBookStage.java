@@ -21,8 +21,8 @@ public class SearchBookStage extends Stage {
 			Parent root = (Parent) loader.load();
 
 			SearchBookController controller = (SearchBookController) loader.getController();
-			TableView<SearchBook> tableCheckoutEntries = controller.getTableSearchBooks();
-			tableCheckoutEntries.setEditable(false);
+			TableView<SearchBook> tableSearchBooks = controller.getTableSearchBooks();
+			tableSearchBooks.setEditable(false);
 
 //			TableColumn<SearchBook, String> bookISBNCol = new TableColumn<>(String.format("ISBN"));
 //			bookISBNCol.setMinWidth(60);
@@ -72,7 +72,7 @@ public class SearchBookStage extends Stage {
 			overdueCol.setCellValueFactory(new PropertyValueFactory<SearchBook, String>("OverDueString"));
 			overdueCol.setCellFactory(TextFieldTableCell.forTableColumn());
 
-			tableCheckoutEntries.getColumns().addAll(bookCopyIdCol, memberFirstNameCol, memberLastNameCol,
+			tableSearchBooks.getColumns().addAll(bookCopyIdCol, memberFirstNameCol, memberLastNameCol,
 					checkoutDateCol, dueDateCol, overdueCol);
 
 			Scene scene = new Scene(root, 800, 600);
