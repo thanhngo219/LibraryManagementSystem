@@ -1,24 +1,30 @@
 package com.library.addbook;
 
-import com.library.business.*;
-import com.library.homescreen.HomeController;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+
+import com.library.business.Author;
+import com.library.business.Book;
+import com.library.business.BookCopy;
+import com.library.business.BookType;
+import com.library.business.BorrowDay;
+import com.library.business.Library;
+import com.library.business.User;
+
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.stage.Stage;
-
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
 
 public class BookController implements Initializable {
 
@@ -154,7 +160,6 @@ public class BookController implements Initializable {
 		alert.showAndWait();
 
 		Library.write();
-		tbvBook.getItems().clear();
 		tbvBook.setItems(FXCollections.observableArrayList(Library.getBooks()));
 	}
 
