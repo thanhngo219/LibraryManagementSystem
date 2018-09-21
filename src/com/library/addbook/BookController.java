@@ -59,7 +59,6 @@ public class BookController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		cbbBookType.getItems().addAll(BookType.values());
 		cbbBorrowDay.getItems().addAll(BorrowDay.values());
-		Library.read();
 		cbbAuthors.getItems().addAll(Library.getAuthors());
 
 		TableColumn<Book, String> bookTitleCol = new TableColumn<>(String.format("Title"));
