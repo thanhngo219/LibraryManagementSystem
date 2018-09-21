@@ -38,27 +38,27 @@ public class HomeController {
 	}
 
 	public void btnAddMemberOnClick(ActionEvent event) throws Exception {
-		navigateToNewScreen("../addmember/addMember.fxml", event);
+		navigateToNewScreen("../addmember/addMember.fxml", "Add Member");
 	}
 
 	public void btnEditMemberOnClick(ActionEvent event) throws Exception {
-		navigateToNewScreen("../editMember/editMember.fxml", event);
+		navigateToNewScreen("../editMember/editMember.fxml", "Edit Member");
 	}
 
 	public void btnAddBookOnClick(ActionEvent event) throws Exception {
-		navigateToNewScreen("../addbook/book.fxml", event);
+		navigateToNewScreen("../addbook/book.fxml", "Add Book");
 	}
 
 	public void btnAddBookCopyOnClick(ActionEvent event) throws Exception {
-		navigateToNewScreen("../addbookcopy/addbookcopy.fxml", event);
+		navigateToNewScreen("../addbookcopy/addbookcopy.fxml", "Add Book Copy");
 	}
 
 	public void btnCheckoutBookOnClick(ActionEvent event) throws Exception {
-		navigateToNewScreen("../checkoutbook/checkoutbook.fxml", event);
+		navigateToNewScreen("../checkoutbook/checkoutbook.fxml", "Check out Book");
 	}
 
 	public void btnSearchBookOnClick(ActionEvent event) throws Exception {
-		navigateToNewScreen("../searchbook/searchbook.fxml", event);
+		navigateToNewScreen("../searchbook/searchbook.fxml", "Search Overdue Book");
 	}
 	
 	public void disableBtnAddMember(boolean value) {
@@ -81,13 +81,14 @@ public class HomeController {
 		btnAddBookCopy.setDisable(value);
 	}
 
-	private void navigateToNewScreen(String fxmlPath, ActionEvent event) throws Exception {
+	private void navigateToNewScreen(String fxmlPath, String title) throws Exception {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
 
 		Parent root = fxmlLoader.load();
 		Stage stage = new Stage();
 		stage.setScene(new Scene(root));
-		stage.setTitle(LibraryConstant.APPLICATION_TITLE);
+		stage.setTitle(LibraryConstant.APPLICATION_TITLE + " - " + title);
+		stage.setResizable(false);
 		stage.show();
 	}
 }
