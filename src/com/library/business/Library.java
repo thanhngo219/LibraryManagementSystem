@@ -44,12 +44,14 @@ public class Library implements Serializable {
 	}
 
 	public static List<Author> getAuthors() {
-	    return singleton.authors;
-    }
+		return singleton.authors;
+	}
 
-    public static Map<String, Book> getMapBooks() { return singleton.books;}
+	public static Map<String, Book> getMapBooks() {
+		return singleton.books;
+	}
 
-    public static List<Book> getBooks() {
+	public static List<Book> getBooks() {
 		return new ArrayList<>(singleton.books.values());
 	}
 
@@ -86,12 +88,12 @@ public class Library implements Serializable {
 	}
 
 	public static Author newAuthor(String fName, String lName) {
-	    Author author = new Author();
-	    author.setFirstName(fName);
-	    author.setLastName(lName);
-	    singleton.authors.add(author);
-	    return author;
-    }
+		Author author = new Author();
+		author.setFirstName(fName);
+		author.setLastName(lName);
+		singleton.authors.add(author);
+		return author;
+	}
 
 	public static Member newMember() {
 		int max = 0;
@@ -108,6 +110,25 @@ public class Library implements Serializable {
 
 	public static Member getMember(int memberId) {
 		return singleton.members.get(memberId);
+	}
+
+	public static List<SearchBook> searchBook(String isbn) {
+		List<SearchBook> result = new ArrayList<>();
+		for (Member member : singleton.members.values()) {
+			List<CheckoutEntry> checkoutEntries = member.getCheckoutRecord().getCheckoutEntries();
+			for (CheckoutEntry checkoutEntry : checkoutEntries) {
+				BookCopy bookCopy = checkoutEntry.getBookCopy();
+				Book book = bookCopy.getBook();
+				if (book.getIsbn().equals(isbn) && bookCopy.isAvailable() == false) {
+					SearchBook searchBook = new SearchBook(book.getIsbn(), book.getTitle(),
+							"" + bookCopy.getBookCopyId(), member.getFirstName(), member.getLastName(),
+							checkoutEntry.getCheckoutDate(), checkoutEntry.getDueDate());
+					result.add(searchBook);
+				}
+			}
+		}
+
+		return result;
 	}
 
 	public static void read() {
